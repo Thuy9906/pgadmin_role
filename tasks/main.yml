@@ -13,3 +13,8 @@
       - "{{ pgadmin_data }}:/var/lib/pgadmin"
       - "{{ pgadmin_config }}:/pgadmin4/servers.json"
       - "{{ pgadmin_pass }}:/pgpass"
+      
+ - name : "Copier le template config servers.json au bon endroit"
+      template:
+        src: servers.json.j2
+        dest: {{ pgadmin_pass }}
