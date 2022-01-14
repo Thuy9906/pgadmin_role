@@ -1,0 +1,36 @@
+---
+# Installation de docker
+- name: "script docker"
+  package:
+    name: curl
+    state: present
+
+- name: "prequis docker"
+  command: 'curl -fsSL https://get.docker.com -o get-docker.sh'
+- name: "install docker"
+  command: 'sh get-docker.sh'
+
+- name: "ajout {{ ansible_user }} au groupe docker"
+  command: "usermod -aG docker {{ ansible_user }}"
+
+- name: "start and enabled docker"
+  service:
+    name: docker
+    enabled: yes
+    state: started
+    
+# Lancement de pgadmin 
+- name : "Launch PostGres database container"
+  docker_container:
+    name: "{{ pgadmin_container }}"
+    image: "{{ pgadmin_image }}"
+    ports:
+      - "{{ pgadmin_port }}:80"
+    env:
+      PGADMIN_DEFAULT_EMAIL: "{{ pgdadmin_email }}"
+      PGADMIN_DEFAULT_PASSWORD: "{{ pgadmin_password }}"
+ 
+    volumes:
+      - "{{ pgadmin_data }}:/var/lib/pgadmin"
+      - "{{ pgadmin_config }}:/pgadmin4/servers.json"
+      - "{{ pgadmin_pass }}:/pgpass"

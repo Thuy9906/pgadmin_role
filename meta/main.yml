@@ -1,0 +1,6 @@
+---
+galaxy_info:
+  role_name: pgadmin_role
+  author: Daniel
+  description: Ansible pgadmin4 role
+  company: ICGROUP
