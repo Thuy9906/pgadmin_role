@@ -19,6 +19,7 @@
     name: docker
     enabled: yes
     state: started
+    ignore_errors: yes
     
 # Lancement de pgadmin 
 - name : "Launch PostGres database container"
