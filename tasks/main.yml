@@ -1,26 +1,3 @@
----
-# Installation de docker
-- name: "script docker"
-  package:
-    name: curl
-    state: present
-
-- name: "prequis docker"
-  command: 'curl -fsSL https://get.docker.com -o get-docker.sh'
-- name: "install docker"
-  command: 'sh get-docker.sh'
-  when: ansible_docker0 is undefined
-
-- name: "ajout {{ ansible_user }} au groupe docker"
-  command: "usermod -aG docker {{ ansible_user }}"
-
-- name: "start and enabled docker"
-  service:
-    name: docker
-    enabled: yes
-    state: started
-    ignore_errors: yes
-    
 # Lancement de pgadmin 
 - name : "Launch PostGres database container"
   docker_container:
