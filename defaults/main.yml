@@ -5,7 +5,7 @@ ansible_user: ubuntu
 #pgAdmin4 variable
 pgadmin_container: pgadmin4_container
 pgadmin_image: "dpage/pgadmin4"
-pgadmin_port: 80
+pgadmin_port: 8090
 pgadmin_email: "user@domain.com"
 pgadmin_password: pgadmin_password
 pgadmin_data: /backup/pgadmin/data
@@ -13,6 +13,6 @@ pgadmin_config: /backup/pgadmin/config
 pgadmin_pass: /backup/pgadmin/pass
 
 #connexion a la bdd 
-postgres_name: postgres_container
-postgres_user: postgres
-postgres_host: postgres_container
+postgres_name: backend_odoo
+postgres_user: odoo_user
+postgres_host: backend_odoo
