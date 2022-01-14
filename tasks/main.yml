@@ -1,5 +1,5 @@
 # Lancement de pgadmin 
-- name : "Launch PostGres database container"
+- name : "Launch pgAdmin container"
   docker_container:
     name: "{{ pgadmin_container }}"
     image: "{{ pgadmin_image }}"
