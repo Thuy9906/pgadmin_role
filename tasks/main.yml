@@ -17,4 +17,4 @@
 - name : "Copier le template config servers.json au bon endroit"
   template:
     src: servers.json.j2
-    dest: {{ pgadmin_pass }}
+    dest: "{{ pgadmin_pass }}"
