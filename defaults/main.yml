@@ -11,3 +11,8 @@ pgadmin_password: pgadmin_password
 pgadmin_data: /backup/pgadmin/data
 pgadmin_config: /backup/pgadmin/config
 pgadmin_pass: /backup/pgadmin/pass
+
+#connexion a la bdd 
+postgres_name: postgres_container
+postgres_user: postgres
+postgres_host: postgres_container
